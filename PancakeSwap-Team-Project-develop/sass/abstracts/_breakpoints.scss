@@ -1,0 +1,13 @@
+/*
+      mobile            mobile-first
+  sm  small-size        bigger than 370px
+  md  medium-size       bigger than 576px
+  lg  large-size        bigger than 852px
+  xl  extra-large-size  bigger than 968px
+*/
+$breakpoints: (
+  sm: 370px,
+  md: 576px,
+  lg: 852px,
+  xl: 968px,
+);

@@ -1,0 +1,126 @@
+@use "../../abstracts/colors" as c;
+@use "../../abstracts/mixins" as m;
+@use "../../abstracts/variables" as v;
+
+.reassurance-section {
+
+    background: var(--colors-gradientBubblegum2);
+
+    .container {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        .reassurance-description {
+            max-width: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+
+            @include m.media(lg) {
+                max-width: 50%;
+            }
+
+            color: var(--colors-textSubtle);
+            padding: 1rem;
+            text-align: center;
+
+            h1 {
+                line-height: 1.1;
+                color: var(--colors-text);
+                font-size: 32px;
+
+                @include m.media(lg) {
+                    font-size: 40px
+                }
+            }
+
+            .r-description {
+                margin-top: 1.5rem;
+                font-weight: 100;
+
+                div {
+                    margin-top: 1rem;
+                    font-weight: bold;
+                }
+
+            }
+        }
+
+        .reassurance-cards {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+
+            .card-small {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                width: 280px;
+                height: 160px;
+
+                @include m.media(lg) {
+                    width: 280px;
+                    height: 280px;
+                    margin: 0;
+                    margin-top: 1rem;
+                    margin-left: 1rem;
+                }
+
+                padding: 24px;
+                text-align: left;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                border-right: 1px solid rgba(0, 0, 0, 0.1);
+                border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+
+                &:nth-child(2) {
+                    svg {
+                        fill: c.$primaryBright;
+                    }
+
+                    h3 {
+                        div {
+                            color: c.$primaryBright;
+                        }
+                    }
+                }
+
+                &:nth-child(3) {
+                    svg {
+                        fill: c.$failure;
+                    }
+
+                    h3 {
+                        div {
+                            color: c.$failure;
+                        }
+                    }
+                }
+            }
+
+            @include m.media(lg) {
+                width: 100%;
+                flex-flow: row;
+                justify-content: center;
+
+                /* .card-small {
+                    height: 300px;
+                    margin-right: 1rem;
+                    margin-left: 1rem;
+                } */
+            }
+        }
+
+    }
+    .reassurance-background {
+        margin-top: 4rem;
+        background: var(--colors-background);
+        width: 100%;
+
+        svg {
+            width: 100%;
+            min-height: 48px;
+            fill: var(--colors-backgroundRe);
+        }
+    }
+}

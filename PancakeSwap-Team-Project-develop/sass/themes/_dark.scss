@@ -1,0 +1,63 @@
+// imports
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+$dark-scheme: (
+  white: $white,
+  failure: $failure,
+  failure33: $failure33,
+  primary: $primary,
+  primary0f: $primary0f,
+  primary3D: $primary3D,
+  primaryBright: $primaryBright,
+  primaryDark: $primaryDark,
+  success: $success,
+  success19: $success19,
+  warning: $warning,
+  warning2D: $warning2D,
+  warning33: $warning33,
+  binance: $binance,
+  overlay: $contrast-dark,
+  gold: $gold,
+  silver: $silver,
+  bronze: $bronze,
+  secondary: $secondary-dark,
+  secondary80: $secondary80-dark,
+  background: $background-dark,
+  backgroundDisabled: $backgroundDisabled-dark,
+  backgroundAlt: $backgroundAlt-dark,
+  backgroundAlt2: $backgroundAlt2-dark,
+  cardBorder: $cardBorder-dark,
+  contrast: $contrast-dark,
+  dropdown: $dropdown-dark,
+  dropdownDeep: $dropdownDeep-dark,
+  invertedContrast: $invertedContrast-dark,
+  input: $input-dark,
+  inputSecondary: $inputSecondary-dark,
+  tertiary: $tertiary-dark,
+  text: $text-dark,
+  invertedText: $invertedText-dark,
+  text99: $text99-dark,
+  textDisabled: $textDisabled-dark,
+  textSubtle: $textSubtle-dark,
+  disabled: $disabled-dark,
+  backgroundRe: $backgroundRe-dark,
+  backgroundHero: $backgroundHero-dark,
+  gradientBubblegum: $gradientBubblegum-dark,
+  gradientBubblegum2: $gradientBubblegum2-dark,
+  gradientInverseBubblegum: $gradientInverseBubblegum-dark,
+  gradientCardHeader: $gradientCardHeader-dark,
+  gradientBlue: $gradientBlue-dark,
+  gradientBlue2: $gradientBlue2-dark,
+  gradientViolet: $gradientViolet-dark,
+  gradientVioletAlt: $gradientVioletAlt-dark,
+  gradientGold: $gradientGold-dark,
+  gradientBold: $gradientBold-dark,
+  graphBackground: $graphBackground-dark,
+);
+
+.dark {
+  // set the light theme
+  color-scheme: dark;
+  @include color-scheme($dark-scheme);
+}

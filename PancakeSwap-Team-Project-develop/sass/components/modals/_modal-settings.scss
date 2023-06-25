@@ -1,0 +1,173 @@
+@use "../../abstracts/colors" as c;
+@use "../../abstracts/mixins" as m;
+@use "../../abstracts/variables" as v;
+
+#settings-modal {
+  position: fixed;
+  opacity: 0;
+  bottom: -10px;
+  z-index: -9999;
+  width: 100%;
+  border: 1px solid var(--colors-cardBorder);
+  box-shadow: rgba(14, 14, 44, 0.1) 0px 20px 36px -8px,
+    rgba(0, 0, 0, 0.05) 0px 1px 1px;
+  border-radius: 32px 32px 0px 0px;
+  background-color: var(--colors-backgroundAlt);
+
+  @include m.media(md) {
+    width: 485px;
+    height: 500px;
+    left: calc(100vw / 2 - 485px / 2);
+    top: calc(100vh / 2 - 500px / 2);
+    border-radius: 32px;
+  }
+
+  &.active {
+    z-index: 9999;
+    opacity: 1;
+    animation: 0.3s linear 0s 1 normal forwards running modal-slide-in;
+
+    @include m.media(md) {
+      opacity: 0;
+      animation: 0.3s cubic-bezier(0.77, 0, 0.18, 1) 0s 1 normal forwards
+        running modal-slide-in-central;
+    }
+  }
+
+  &.deactive {
+    z-index: -9999;
+    opacity: 0;
+    max-height: 90vh;
+    animation: 0.3s linear 0s 1 normal forwards running modal-slide-out;
+
+    @include m.media(md) {
+      opacity: 1;
+      animation: 0.3s cubic-bezier(0.77, 0, 0.18, 1) 0s 1 normal forwards
+        running modal-slide-out-central;
+    }
+  }
+
+  .settings-modal-container {
+    position: relative;
+    max-height: 90vh;
+    min-height: 300px;
+    color: var(--colors-text);
+
+    .settings-modal-header {
+      border-bottom: 1px solid var(--colors-cardBorder);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+
+      h4 {
+        flex-grow: 1;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.1;
+      }
+
+      button {
+        background: none;
+        border: none;
+        height: 48px;
+        cursor: pointer;
+
+        svg path {
+          fill: var(--colors-primary);
+        }
+      }
+    }
+
+    .settings-modal-main {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+
+      .settings-modal-categories {
+        color: var(--colors-secondary);
+        font-weight: 600;
+        line-height: 1.5;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        font-size: 18px;
+      }
+
+      .settings-modal-options {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        .color-scheme-switcher.preserve {
+          background-color: var(--colors-input);
+          &.active {
+            background-color: var(--colors-success);
+          }
+          &.deactive {
+            background-color: var(--colors-input);
+          }
+          .color-scheme-switcher-bubble {
+            height: 26px;
+            background-color: var(--colors-backgroundAlt);
+            &.active {
+              animation: 0.1s linear 0s 1 normal forwards running bubble-slide;
+            }
+            &.deactive {
+              animation: 0.1s linear 0s 1 normal forwards running
+                bubble-slide-left;
+            }
+          }
+        }
+
+        div {
+          &:first-child {
+            color: var(--colors-text);
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+        }
+
+        &:last-child {
+          flex-flow: column;
+
+          div:last-child {
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-around;
+          }
+
+          button {
+            border-radius: 16px;
+            line-height: 1;
+            height: 32px;
+            &.deactive {
+              background-color: var(--colors-tertiary);
+              color: var(--colors-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100vw;
+  height: 1000vh;
+  background-color: var(--colors-overlay);
+  z-index: -9999;
+
+  &.active {
+    animation: 0.3s linear 0s 1 normal forwards running fade-opacity;
+    z-index: -9000;
+  }
+
+  &.deactive {
+    z-index: -9999;
+    animation: 0.3s linear 0s 1 normal forwards running fade-opacity-out;
+  }
+}

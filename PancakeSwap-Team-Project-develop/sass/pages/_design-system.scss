@@ -1,0 +1,192 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/colors" as c;
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
+
+body {
+  font-family: v.$font-kanit;
+  font-weight: v.$font-bold;
+}
+
+/*--typography--start--*/
+.typo-title {
+  text-decoration: underline;
+  font-weight: v.$font-normal;
+  font-family: v.$font-kanit;
+}
+.typography-conainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.typo-48px {
+  font-size: v.$space-10;
+}
+.typo-32px {
+  font-size: v.$space-9;
+}
+.typo-24px {
+  font-size: v.$space-8;
+}
+.typo-20px {
+  font-size: v.$space-7;
+}
+.typo-16px {
+  font-size: v.$space-6;
+}
+
+.typo-bold {
+  font-weight: v.$font-bold;
+}
+.typo-regular {
+  font-weight: v.$font-normal;
+}
+.typo-h2 {
+  color: var(--colors-text);
+}
+.typo-span,
+.typo-h2 p:first-of-type {
+  color: var(--colors-secondary);
+}
+
+.typo-body p:nth-child(1),
+.typo-body p:nth-child(2) {
+  color: var(--colors-textSubtle);
+}
+.typo-body p:last-child {
+  color: var(--colors-inputSecondary);
+}
+
+.typo-button p {
+  color: var(--colors-white);
+}
+
+/*--typography--end--*/
+
+/*--color--start--*/
+.color-title {
+  text-decoration: underline;
+  font-weight: v.$font-normal;
+  font-family: v.$font-kanit;
+}
+
+.colors-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.color-grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.color-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-first-row {
+  margin-bottom: 15px;
+}
+
+.color-box {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+}
+
+.color1 {
+  background-color: var(--colors-primary);
+}
+
+.color2 {
+  background-color: var(--colors-secondary);
+}
+
+.color3 {
+  background-color: var(--colors-failure);
+}
+
+.color4 {
+  background-color: var(--colors-warning);
+}
+
+.color5 {
+  background: var(--colors-gradientBlue);
+}
+
+.color6 {
+  background: var(--colors-gradientViolet);
+}
+
+.color7 {
+  background: var(--colors-gradientVioletAlt);
+}
+
+.color8 {
+  background: var(--colors-gradientGold);
+}
+
+.color9 {
+  background: var(--colors-gradientBubblegum);
+}
+
+.color10 {
+  background: var(--colors-gradientInverseBubblegum);
+}
+
+.color11 {
+  background: var(--colors-gradientCardHeader);
+}
+
+.color12 {
+  background: var(--colors-gradientBold);
+}
+
+.color1,
+.color2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-inside-box {
+  width: 25px;
+  height: 25px;
+}
+
+.color1 div:first-child {
+  background-color: #e5fdff;
+}
+
+.color1 div:nth-child(2) {
+  background-color: #94e1f2;
+}
+
+.color1 div:nth-child(3) {
+  background-color: var(--colors-primaryBright);
+}
+
+.color1 div:nth-child(4) {
+  background-color: var(--colors-primaryDark);
+}
+
+.color2 div:first-child {
+  background-color: var(--colors-inputSecondary);
+}
+
+.color2 div:nth-child(2) {
+  background-color: var(--colors-textSubtle);
+}
+
+.color2 div:nth-child(3) {
+  background: #5a2cb480;
+}
+
+.color2 div:nth-child(4) {
+  background-color: var(--colors-text);
+}

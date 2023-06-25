@@ -1,0 +1,27 @@
+@use "./breakpoints" as b;
+
+/*
+    Media Query Handler
+
+    @include media(md|lg|xl) {
+        // content of the media query
+    }
+*/
+@mixin media($breakpoint) {
+  $breakpointWidth: map-get(b.$breakpoints, $breakpoint);
+
+  @media screen and
+    (
+      min-width: #{$breakpointWidth}) {
+    @content;
+  }
+}
+
+/*
+    Color Scheme Handler
+*/
+@mixin color-scheme($color-scheme) {
+  @each $key, $value in $color-scheme {
+    --colors-#{""+$key}: #{$value};
+  }
+}

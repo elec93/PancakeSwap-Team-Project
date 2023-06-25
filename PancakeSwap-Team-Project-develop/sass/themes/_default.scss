@@ -1,0 +1,72 @@
+// imports
+@use "../abstracts/colors" as *;
+@use "../abstracts/mixins" as *;
+
+$light-scheme: (
+  white: $white,
+  failure: $failure,
+  failure33: $failure33,
+  primary: $primary,
+  primary0f: $primary0f,
+  primary3D: $primary3D,
+  primaryBright: $primaryBright,
+  primaryDark: $primaryDark,
+  success: $success,
+  success19: $success19,
+  warning: $warning,
+  warning2D: $warning2D,
+  warning33: $warning33,
+  binance: $binance,
+  overlay: $overlay,
+  gold: $gold,
+  silver: $silver,
+  bronze: $bronze,
+  secondary: $secondary,
+  secondary80: $secondary80,
+  background: $background,
+  backgroundDisabled: $backgroundDisabled,
+  backgroundAlt: $backgroundAlt,
+  backgroundAlt2: $backgroundAlt2,
+  cardBorder: $cardBorder,
+  contrast: $contrast,
+  dropdown: $dropdown,
+  dropdownDeep: $dropdownDeep,
+  invertedContrast: $invertedContrast,
+  input: $input,
+  inputSecondary: $inputSecondary,
+  tertiary: $tertiary,
+  text: $text,
+  invertedText: $invertedText,
+  text99: $text99,
+  textDisabled: $textDisabled,
+  textSubtle: $textSubtle,
+  disabled: $disabled,
+  backgroundRe: $backgroundRe,
+  backgroundHero: $backgroundHero,
+  gradientBubblegum: $gradientBubblegum,
+  gradientBubblegum2: $gradientBubblegum2,
+  gradientInverseBubblegum: $gradientInverseBubblegum,
+  gradientCardHeader: $gradientCardHeader,
+  gradientBlue: $gradientBlue,
+  gradientBlue2: $gradientBlue2,
+  gradientViolet: $gradientViolet,
+  gradientViolet2: $gradientViolet2,
+  gradientVioletAlt: $gradientVioletAlt,
+  gradientGold: $gradientGold,
+  gradientBold: $gradientBold,
+  graphBackground: $graphBackground,
+);
+
+:root {
+  // set the light theme
+  color-scheme: light;
+  @include color-scheme($light-scheme);
+}
+
+@media (prefer-color-scheme: light) {
+  :root {
+    // set the light theme
+    color-scheme: light;
+    @include color-scheme($light-scheme);
+  }
+}

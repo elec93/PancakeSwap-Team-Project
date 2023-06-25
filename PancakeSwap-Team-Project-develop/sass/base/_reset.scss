@@ -1,0 +1,14 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/variables" as v;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: v.$space-0;
+  padding: v.$space-0;
+}
+
+main {
+  overflow: hidden;
+}
