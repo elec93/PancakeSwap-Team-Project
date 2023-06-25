@@ -1,0 +1,204 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.btn {
+  position: relative;
+  -webkit-box-align: center;
+  align-items: center;
+  border: 0px;
+  border-radius: 16px;
+  box-shadow: rgb(14 14 44 / 40%) 0px -1px 0px 0px inset;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 3px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  -webkit-box-pack: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  opacity: 1;
+  outline: 0px;
+  transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+  height: 48px;
+  padding: 0px 24px;
+
+  box-shadow: rgb(0 0 0 / 10%) 0px -2px 0px inset;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background-color: var(--colors-primary);
+  color: var(--colors-invertedContrast);
+
+  &:hover {
+    opacity: 0.65;
+  }
+  &:active {
+    opacity: 0.85;
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  @media screen and (min-width: 576px) {
+    border-radius: 16px;
+  }
+
+  &-cyan {
+    background-color: var(--colors-primary);
+    color: var(--colors-invertedContrast);
+  }
+
+  &-white {
+    background-color: var(--colors-white);
+    color: var(--colors-primary);
+  }
+}
+
+.color-scheme-switcher {
+  z-index: 1;
+  position: relative;
+  width: 56px;
+  height: 32px;
+  overflow: hidden;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: c.$textDisabled-dark;
+  border-radius: 24px;
+  box-shadow: v.$shadow-inset;
+  cursor: pointer;
+  display: inline-flex;
+  transition: background-color 200ms ease 0s;
+  &:hover {
+    .color-scheme-switcher-bubble {
+      box-shadow: v.$shadow-focus;
+    }
+  }
+
+  .color-scheme-switcher-bg {
+    display: flex;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    > svg {
+      align-self: center;
+      fill: c.$backgroundAlt-dark;
+      flex-shrink: 0;
+    }
+  }
+
+  .color-scheme-switcher-bubble {
+    background-color: c.$backgroundAlt-dark;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 26px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    transition: all 200ms ease-in 0s;
+    width: 26px;
+    z-index: 1;
+    translate: 0px 0px;
+    &.dark {
+      translate: calc(100% - 3px);
+    }
+    div {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      height: 100%;
+      &.dark-icon {
+        svg {
+          align-self: center;
+          fill: var(--colors-secondary);
+          flex-shrink: 0;
+        }
+      }
+      &.light-icon {
+        svg {
+          align-self: center;
+          fill: var(--colors-warning);
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin base-style {
+  border: v.$border-0 c.$primary;
+  border-radius: v.$radius-default;
+  color: c.$invertedContrast-dark;
+  font-weight: v.$font-bold;
+  font-size: v.$text-default;
+}
+
+.button-thin {
+  @include base-style;
+  height: v.$b-height-0;
+  padding: v.$btn-padding;
+  opacity: 1;
+  cursor: pointer;
+  &:hover {
+    transition: opacity 1s ease 0s;
+    opacity: 0.6;
+  }
+}
+
+.button-container {
+  width: 100%;
+  height: 100%;
+  margin: 6px !important;
+}
+
+.button-square-arrow {
+  @include base-style;
+  height: v.$b-height-1;
+  width: v.$b-width-1;
+}
+
+.arrow-up-btn {
+  height: v.$b-height-2;
+  width: v.$b-width-2;
+}
+
+//fat button
+.button-fat {
+  @include base-style;
+  height: v.$b-height-3;
+  padding: v.$btn-padding-1;
+}
+
+.button-medium {
+  @include base-style;
+  height: v.$b-height-3;
+  padding: v.$btn-padding;
+}
+
+.button-medium-transparent {
+  border: v.$border-2 solid c.$primary;
+  border-radius: v.$radius-default;
+  color: c.$primary;
+  font-weight: v.$font-bold;
+  height: v.$b-height-3;
+  padding: v.$btn-padding;
+  font-weight: v.$font-bold;
+  font-size: v.$text-default;
+}
+
+.button-slide-daynight-base {
+  height: v.$b-height-0;
+  width: v.$b-width-3;
+  border-radius: v.$radius-card;
+}
+
+.lightblue {
+  background-color: c.$primaryBright;
+}
+
+.darkblue {
+  background-color: c.$primary;
+}

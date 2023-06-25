@@ -1,0 +1,15 @@
+@use "../../abstracts/variables" as v;
+
+/*
+  Use this class for all sections of the homepage
+*/
+.section {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 1;
+  padding: v.$space-10 v.$space-6;
+  padding: v.$space-10 v.$space-0;
+}

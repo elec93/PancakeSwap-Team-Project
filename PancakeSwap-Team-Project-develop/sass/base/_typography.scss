@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&display=swap");
+
+body {
+  font-family: v.$font-kanit;
+  font-weight: v.$font-bold;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600px;
+  line-height: 1.1;
+
+  @include m.media(xl) {
+    font-size: 40px;
+  }
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500px;
+  line-height: 24px;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,311 @@
+@use "../../abstracts/variables" as v;
+@use "../../abstracts/mixins" as m;
+
+.swap-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--colors-text99);
+  transition: opacity 350ms ease-in;
+  opacity: 0;
+  z-index: -1;
+  visibility: visible;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    z-index: 101;
+  }
+}
+
+main:has(.swap-wrapper) {
+  z-index: 101;
+}
+
+.swap-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  transition: margin-top 0.2s ease 0s,
+    margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  transform: translate3d(0px, 0px, 0px);
+  background: none;
+  @include m.media(xl) {
+    background: var(--colors-gradientBubblegum);
+  }
+  max-width: 100%;
+  z-index: 101;
+
+  .swap-container {
+    position: relative;
+    background-size: auto;
+    width: 100%;
+    padding-bottom: v.$space-0;
+    padding: v.$space-6;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 102;
+    min-height: calc(100vh - 42px - 55px);
+    @include m.media(md) {
+      padding: 24px 24px 0;
+    }
+    @include m.media(xl) {
+      padding: 32px 32px 0;
+    }
+    &.fullscreen {
+      padding: 0 !important;
+      > div {
+        .swap-chart-container {
+          border-radius: 0px !important;
+          width: 100% !important;
+          height: 100% !important;
+          #trade-chart {
+            height: calc(100vh - 220px) !important;
+          }
+        }
+      }
+    }
+    > div {
+      flex-direction: row-reverse;
+      z-index: 102;
+      width: 328px;
+      height: calc(100vh - 70px);
+      @include m.media(md) {
+        height: calc(100vh - 80px);
+      }
+      @include m.media(xl) {
+        height: 100%;
+      }
+      position: relative;
+      justify-content: center;
+      align-items: flex-start;
+      @include m.media(sm) {
+        width: 100%;
+      }
+
+      .swap-chart-container {
+        z-index: 104;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-radius: 16px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding-top: 8px;
+        background: var(--colors-backgroundAlt);
+        border: 1px solid var(--colors-cardBorder);
+        height: 70%;
+        transition: height 200ms ease-in;
+        padding-bottom: 55px;
+        @include m.media(xl) {
+          background: var(--colors-graphBackground);
+          left: 0;
+          bottom: 0;
+          position: relative;
+          height: 516px;
+          overflow: unset;
+          border-radius: 32px;
+          padding-top: 36px;
+          padding-top: 8px;
+          border-radius: 16px;
+          width: 50%;
+        }
+        &.hidden {
+          position: fixed;
+          left: -2000px;
+        }
+
+        .swap-chart-header {
+          z-index: 102;
+          display: flex;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          padding-left: 24px;
+          padding-right: 24px;
+          height: 48px;
+          &-icons {
+            z-index: 102;
+            display: flex;
+            flex-direction: row;
+            margin-right: 4px;
+            overflow: hidden;
+            > img {
+              z-index: 102;
+              align-self: center;
+              fill: var(--colors-text);
+              flex-shrink: 0;
+              margin-right: 4px;
+              width: 24px;
+              height: 24px;
+              max-width: 100%;
+              &:last-child {
+                margin-right: 0px;
+              }
+            }
+          }
+          &-tokens {
+            z-index: 102;
+            color: var(--colors-text);
+            font-weight: 600;
+            line-height: 1.5;
+            font-size: 16px;
+          }
+          > div {
+            .swap-zoom-btn {
+              display: none;
+              @include m.media(xl) {
+                display: block;
+              }
+            }
+            .swap-close-btn {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              @include m.media(xl) {
+                display: none;
+              }
+            }
+            > button {
+              z-index: 102;
+              position: relative;
+              -webkit-box-align: center;
+              align-items: center;
+              border: 0px;
+              border-radius: 16px;
+              cursor: pointer;
+              display: inline-flex;
+              font-family: inherit;
+              font-size: 16px;
+              font-weight: 600;
+              -webkit-box-pack: center;
+              justify-content: center;
+              letter-spacing: 0.03em;
+              line-height: 1;
+              opacity: 1;
+              outline: 0px;
+              transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+              height: 48px;
+              background-color: transparent;
+              color: var(--colors-primary);
+              box-shadow: none;
+              padding: 0px;
+              width: 48px;
+              > svg {
+                z-index: 102;
+                align-self: center;
+                justify-self: center;
+                fill: var(--colors-text);
+                flex-shrink: 0;
+              }
+            }
+          }
+        }
+        .swap-chart-subheader {
+          z-index: 102;
+          display: flex;
+          flex-flow: column wrap;
+          align-items: flex-start;
+          -webkit-box-pack: justify;
+          justify-content: space-between;
+          padding-left: 24px;
+          padding-right: 24px;
+          @media screen and (min-width: 1200px) {
+            flex-direction: row;
+            -webkit-box-align: center;
+            align-items: center;
+          }
+          .swap-chart-subheader-data {
+            z-index: 102;
+            display: flex;
+            flex-direction: column;
+            padding-top: 12px;
+            .swap-chart-subheader-price {
+              z-index: 102;
+              color: var(--colors-text);
+              font-weight: 600;
+              margin-right: 8px;
+              font-size: 32px;
+              line-height: 1.1;
+              @include m.media(xl) {
+                font-size: 40px;
+              }
+            }
+            .swap-chart-subheader-tokens {
+              z-index: 102;
+              color: var(--colors-textSubtle);
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 1.1;
+            }
+            .swap-chart-subheader-change {
+              z-index: 102;
+              color: var(--colors-failure);
+              font-weight: 600;
+              line-height: 1.5;
+              margin-left: 4px;
+              font-size: 20px;
+            }
+            .swap-chart-subheader-date {
+              z-index: 102;
+              color: var(--colors-secondary);
+              font-weight: 400;
+              line-height: 1.5;
+              font-size: 14px;
+            }
+          }
+          .swap-chart-subheader-selector {
+            z-index: 102;
+            .swap-chart-subheader-selector-content {
+              background-color: var(--colors-tertiary);
+              border-radius: 16px;
+              display: inline-flex;
+              border: 1px solid var(--colors-disabled);
+              width: auto;
+              button {
+                z-index: 102;
+                position: relative;
+                -webkit-box-align: center;
+                align-items: center;
+                border: 0px;
+                border-radius: 16px;
+                cursor: pointer;
+                display: inline-flex;
+                font-family: inherit;
+                font-size: 16px;
+                font-weight: 600;
+                -webkit-box-pack: center;
+                justify-content: center;
+                letter-spacing: 0.03em;
+                line-height: 1;
+                opacity: 1;
+                outline: 0px;
+                transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+                height: 32px;
+                padding: 0px 16px;
+                background-color: transparent;
+                flex: 1 1 auto;
+                color: var(--colors-primary);
+                &.active {
+                  background-color: var(--colors-primary);
+                  color: var(--colors-invertedContrast);
+                }
+                & + button {
+                  margin-left: 2px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

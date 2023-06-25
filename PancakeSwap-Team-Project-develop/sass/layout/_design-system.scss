@@ -1,0 +1,50 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+body:has(#design-system) {
+  background: var(--colors-gradientBold);
+  min-height: 100vh;
+  padding: 30px;
+}
+
+#design-system {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  @include m.media(xl) {
+    flex-direction: row;
+  }
+
+  > div {
+    flex: 1;
+    &:last-child {
+      flex: 100%;
+    }
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    > section {
+      padding: 10px;
+      background: var(--colors-white);
+      background-color: #ffffffbf;
+      backdrop-filter: blur(10px);
+      box-shadow: 4px 4px 10px #00000033;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      > h2 {
+        margin-bottom: 10px;
+      }
+      > div {
+        margin: 30px 15px 15px 15px;
+      }
+      .card-small {
+        scale: 0.5;
+      }
+    }
+  }
+}

@@ -1,0 +1,203 @@
+@use "../../abstracts/colors" as c;
+@use "../../abstracts/mixins" as m;
+@use "../../abstracts/variables" as v;
+
+.win-section {
+    background: var(--colors-gradientBlue2);
+    overflow: hidden;
+    .container {
+        position: relative;
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        padding: 25px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border: 1px solid var(--colors-cardBorder);
+        @include m.media(lg){
+            max-width: 80%;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 50px;
+
+        }
+        @media screen and (min-width: 1100px) {
+            max-width: 47%;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 50px;
+        }
+        
+        background-color: var(--colors-backgroundAlt2);
+        backdrop-filter: blur(12px);
+        border-radius: 72px;
+        
+        >.win-content {
+            @include m.media(lg){
+                width: 100%;
+            }
+            >h2 {
+                font-size: 32px;
+                @include m.media(lg){
+                    font-size: 40px;
+                }
+                text-align: center;
+                color: var(--colors-text);
+                margin-bottom: 1rem;
+
+                span {
+                    color: var(--colors-secondary);
+                }
+            }
+
+            .description {
+                color: var(--colors-textSubtle);
+                font-weight: 400;
+                line-height: 1.5;
+                font-size: 16px;
+                text-align: center;
+                margin-bottom: 2rem;
+
+            }
+
+            .section-win-cards {
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                gap: 2rem;
+                @include m.media(lg){
+                    flex-flow: row;
+                    justify-content: center;
+
+                }
+
+                .card-gold {
+                    @include m.media(lg){
+                        transform:  rotate(-2.36deg);
+                    }
+                    &:nth-child(2) {
+                        background: var(--colors-gradientViolet2);
+                        box-shadow: 0 4px #280d5f;
+                        @include m.media(lg){
+                            transform:  rotate(2.36deg);
+                        }
+                        .card-icon {
+                            svg {
+                                fill: var(--colors-white)
+                            }
+                        }
+
+                        >div {
+                            color: var(--colors-white);
+
+                            .win-section-span {
+                                color: var(--colors-gold);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    .win-images-1 {
+        position: absolute;
+        display: flex;
+        max-width: 192px;
+        @include m.media(lg){
+            max-width: 100%;
+        }
+        top: -64px;
+        right: 0;
+        .win-images-content{
+            position: relative;
+            max-height: 512px;
+            > img{
+                max-height: 512px;
+                visibility: hidden;
+                height: auto;
+                max-width: 100%;
+            }
+            .win-image{
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                &:nth-child(2){
+                    animation: 3s ease-in-out 1s infinite normal none running
+                    anim-float-1;
+                }
+                &:nth-child(3){
+                    animation: 3s ease-in-out 0.66s infinite normal none running
+                    anim-float-2;
+                }
+                &:nth-child(4){
+                    animation: 3s ease-in-out 0.33s infinite normal none running
+                    anim-float-3;
+                }
+                &:nth-child(5){
+                    animation: 3s ease-in-out 0.66s infinite normal none running
+                    anim-float-2;
+                }
+                
+                img{
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                    max-width: 100%;
+                }
+            }
+            
+        }
+    }
+    .win-images-2{
+        position: absolute;
+        display: flex;
+        max-width: 192px;
+        @include m.media(lg){
+            max-width: 100%;
+        }
+        bottom: -64px;
+        left: 0;
+        .win-images-content{
+            position: relative;
+            max-height: 512px;
+            > img{
+                max-height: 512px;
+                visibility: hidden;
+                height: auto;
+                max-width: 100%;
+            }
+            .win-image{
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                &:nth-child(2){
+                    animation: 3s ease-in-out 1s infinite normal none running
+                    anim-float-1;
+                }
+                &:nth-child(3){
+                    animation: 3s ease-in-out 0.66s infinite normal none running
+                    anim-float-2;
+                }
+                &:nth-child(4){
+                    animation: 3s ease-in-out 0.33s infinite normal none running
+                    anim-float-1;
+                }
+                &:nth-child(5){
+                    animation: 3s ease-in-out 0.66s infinite normal none running
+                    anim-float-1;
+                }
+                
+                img{
+                    max-height: 100%;
+                    width: auto;
+                    height: auto;
+                    max-width: 100%;
+                }
+            }
+            
+        }
+    }
+}

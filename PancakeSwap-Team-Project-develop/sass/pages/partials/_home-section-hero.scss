@@ -1,0 +1,369 @@
+@use "../../abstracts/colors" as c;
+@use "../../abstracts/mixins" as m;
+@use "../../abstracts/variables" as v;
+
+* {
+  box-sizing: border-box;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+@keyframes move-diagonal {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(5px, 5px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fade-in-out-1 {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes fade-in-out-2 {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes fade-in-out-3 {
+  0% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-swiper-section {
+  background: var(--colors-backgroundHero);
+  margin: 0px;
+  width: 100%;
+
+  //comune a tutte le sezioni
+  min-height: auto;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  z-index: 1;
+  padding: v.$space-10 v.$space-6;
+  padding: v.$space-10 v.$space-0;
+}
+
+.homepage-hero {
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  display: flex;
+  -moz-box-pack: center;
+  justify-content: center;
+
+  position: relative;
+  margin-top: 50px;
+
+  font-size: 100%;
+  vertical-align: baseline;
+  border: 0px none;
+  padding: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+
+/*============= Hero Text =============*/
+.hero-text-container {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+
+  margin: 0px;
+  padding: 0px;
+  font-size: 100%;
+  border: 0px none;
+}
+
+.hero-text-container h2:nth-child(1) {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.1;
+
+  color: var(--colors-secondary);
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
+  border: 0px none;
+}
+
+.hero-text-container h2:nth-child(2) {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.1;
+
+  margin: 0;
+  padding: 0;
+  border: 0px none;
+  color: var(--colors-text);
+  margin-bottom: 24px;
+}
+
+/*============= Hero Buttons =============*/
+.hero-buttons-container {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  border: 0px none;
+}
+
+.btn-hero {
+  position: relative;
+  -moz-box-align: center;
+  align-items: center;
+  border: 0px none;
+  border-radius: 16px;
+  box-shadow: rgba(14, 14, 44, 0.4) 0px -1px 0px 0px inset;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  -moz-box-pack: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  opacity: 1;
+  outline: 0px;
+  transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+  height: 48px;
+  padding: 0px 24px;
+  background-color: var(--colors-primary);
+  color: var(--colors-invertedContrast);
+  margin-right: 8px;
+}
+
+.btn-hero:hover {
+  opacity: 0.65;
+}
+
+a.trade-hero {
+  position: relative;
+  -moz-box-align: center;
+  align-items: center;
+  border-radius: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  -moz-box-pack: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  opacity: 1;
+  outline: 0px;
+  transition: background-color 0.2s ease 0s, opacity 0.2s ease 0s;
+  height: 48px;
+  padding: 0px 24px;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-image: none 100% / 1 / 0 stretch;
+  border-color: var(--colors-primary);
+  box-shadow: none;
+  color: var(--colors-primary);
+}
+
+/*============= Hero Images =============*/
+.hero-img-container {
+  display: flex;
+  height: 192px;
+  width: 192px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.hero-img-bunny {
+  max-height: 512px;
+  vertical-align: baseline;
+
+  height: auto;
+  max-width: 100%;
+  animation: move-diagonal ease-in-out 3s infinite;
+  z-index: 1;
+}
+
+.hero-star-1,
+.hero-star-2,
+.hero-star-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 50%;
+
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  z-index: 1;
+}
+
+.hero-star-1 {
+  top: 25%;
+  left: 75%;
+  width: 1.5rem;
+  height: auto;
+
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
+
+  animation: fade-in-out-1 3s infinite;
+}
+
+.hero-star-2 {
+  top: 65%;
+  left: 90%;
+  width: 2rem;
+  height: auto;
+
+  animation: fade-in-out-2 5s infinite;
+}
+
+.hero-star-3 {
+  top: 80%;
+  left: 12%;
+  width: 1rem;
+  height: auto;
+
+  animation: fade-in-out-3 2.5s infinite;
+}
+
+/*============= Hero Svg Path =============*/
+
+.kaMvqP {
+  position: absolute;
+  width: 100%;
+  bottom: -3px;
+  z-index: -1;
+  margin-bottom: -4px;
+}
+
+
+/*============= Hero Media Queries =============*/
+@media screen and (min-width: 370px) {
+  .hero-swiper-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .hero-swiper-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .homepage-hero {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (min-width: 852px) {
+  .homepage-hero {
+    align-items: center;
+    -moz-box-align: center;
+    flex-direction: row;
+  }
+
+  .hero-img-container {
+    flex: 1 1 0%;
+    margin-bottom: 0px;
+    height: 100%;
+  }
+
+  .hero-star-1 {
+    height: 10%;
+    width: auto;
+  }
+
+  .hero-star-2 {
+    height: 15%;
+    width: auto;
+  }
+
+  .hero-star-3 {
+    height: 8%;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  .hero-text-container h2:nth-child(1) {
+    font-size: 64px;
+  }
+
+  .hero-text-container h2:nth-child(2) {
+    font-size: 20px;
+  }
+}
+
+.bg-1 {
+  stop-color: white;
+  stop-opacity: 0.48
+}
+
+.bg-2 {
+  stop-color: white;
+  stop-opacity: 0.35
+}
+
+.bg-3 {
+  stop-color: white;
+}
+
+html.dark{
+  .bg-1 {
+    stop-color: var(--colors-invertedText);
+    stop-opacity: 0.2
+  }
+  
+  .bg-2 {
+    stop-color: var(--colors-invertedText);
+    stop-opacity: 0.5
+  }
+  
+  .bg-3 {
+    stop-color: var(--colors-invertedText);
+  }
+}

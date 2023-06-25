@@ -1,0 +1,106 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+@use "../abstracts/colors" as c;
+
+// custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--colors-textSubtle);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--colors-input);
+  border-radius: 10px;
+}
+
+.container {
+  margin: v.$space-0;
+  width: 100%;
+  min-height: auto;
+  max-width: 1200px;
+  padding-top: v.$space-6;
+  padding-bottom: v.$space-6;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include m.media(sm) {
+    padding-left: v.$space-8;
+    padding-right: v.$space-8;
+  }
+  @include m.media(md) {
+    padding-top: v.$space-9;
+    padding-bottom: v.$space-9;
+  }
+  @include m.media(xl) {
+    padding-top: v.$space-10;
+    padding-bottom: v.$space-10;
+  }
+}
+
+.flex {
+  display: flex;
+  &-column {
+    flex-direction: column;
+    &-reverse {
+      flex-direction: column-reverse;
+    }
+  }
+  &-row {
+    flex-direction: row;
+    &-reverse {
+      flex-direction: row-reverse;
+    }
+  }
+  &.justify {
+    &-flex-start {
+      justify-content: flex-start;
+    }
+    &-flex-end {
+      justify-content: flex-end;
+    }
+    &-center {
+      justify-content: center;
+    }
+    &-baseline {
+      justify-content: baseline;
+    }
+    &-between {
+      justify-content: space-between;
+    }
+  }
+  &.align {
+    &-flex-start {
+      align-items: flex-start;
+    }
+    &-flex-end {
+      align-items: flex-end;
+    }
+    &-center {
+      align-items: center;
+    }
+    &-baseline {
+      align-items: baseline;
+    }
+    &-between {
+      align-items: space-between;
+    }
+  }
+}
+
+.w {
+  &-full {
+    width: 100%;
+  }
+}
+.h {
+  &-full {
+    height: 100%;
+  }
+}
+
+main {
+  margin-top: 56px;
+  position: relative;
+}

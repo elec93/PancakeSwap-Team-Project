@@ -1,0 +1,27 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as m;
+
+.logo-container{
+    height: 100%;
+    width: 100%;
+    margin: 6px !important;
+}
+.logo1{
+    height: v.$height-1;
+    width: v.$width-1;
+    align-self: stretch;
+    margin-right: 10px;
+    border: 1px solid black
+}
+.logo2{
+    height: v.$height-1;
+    width: 160px;
+    display: inline-block;
+    border: 1px solid black
+}
+
+.icon{
+    height: v.$height-2;
+    width: v.$width-2;
+}

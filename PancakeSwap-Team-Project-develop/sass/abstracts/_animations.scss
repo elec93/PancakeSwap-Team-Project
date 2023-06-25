@@ -1,0 +1,115 @@
+@keyframes anim-float-1 {
+  0% {
+    translate: 0% 0%;
+  }
+  50% {
+    translate: 1% 5%;
+  }
+}
+@keyframes anim-float-2 {
+  0% {
+    translate: 0% 0%;
+  }
+  50% {
+    translate: 2% 3%;
+  }
+}
+@keyframes anim-float-3 {
+  0% {
+    translate: 0% 0%;
+  }
+  50% {
+    translate: 3% 1%;
+  }
+}
+@keyframes modal-slide-in {
+  0% {
+    max-height: 40vh;
+    translate: 0% 0%;
+
+  }
+  100% {
+    translate: 0% -2%;
+    max-height: 90vh;
+  }
+}
+@keyframes modal-slide-in-central {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-out {
+  0% {
+    opacity: 0.3;
+    translate: 0% 0%;
+  }
+  
+  100% {
+    translate: 0% 100%;
+  }
+}
+@keyframes modal-slide-out-central {
+  0% {
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-opacity {
+  0% {
+    opacity: 0;
+    z-index: 101;
+  }
+  
+  100% {
+    z-index: 101;
+    opacity: 0.3;
+  }
+}
+@keyframes fade-opacity-out {
+  0% {
+    z-index: 100;
+    opacity: 0.3;
+  }
+  50%{
+    z-index: 100;
+    opacity: 0;
+  }
+  100% {
+    z-index: -99999;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes bubble-slide {
+  0% {
+    translate: 0% 0%;
+  }
+  
+  100% {
+    translate: 100% 0%
+  }
+}
+@keyframes bubble-slide-left {
+  0% {
+    translate: 100% 0%
+  }
+  
+  100% {
+    translate: 0% 0%;
+  }
+}

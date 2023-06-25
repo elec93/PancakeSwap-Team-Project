@@ -1,0 +1,464 @@
+@use "../../abstracts/variables" as v;
+@use "../../abstracts/mixins" as m;
+
+.swap-panel-container {
+  display: flex;
+  flex-direction: column;
+  .swap-panel {
+    display: flex;
+    flex-shrink: 0;
+    height: fit-content;
+    padding: 0px 24px;
+    @include m.media(xl) {
+      padding: 0px 40px;
+    }
+    .swap-panel-wrapper {
+      width: 328px;
+      margin-top: 0px;
+      .swap-panel-content {
+        background: var(--colors-cardBorder);
+        color: var(--colors-text);
+        overflow: hidden;
+        position: relative;
+        padding: 1px 1px 3px;
+        border-radius: 24px;
+        max-width: 436px;
+        width: 100%;
+        > div {
+          width: 100%;
+          height: 100%;
+          overflow: inherit;
+          background: var(--colors-backgroundAlt);
+          border-radius: v.$radius-card;
+          .swap-panel-header {
+            padding: v.$space-8;
+            width: 100%;
+            border-bottom: 1px solid var(--colors-cardBorder);
+            .swap-panel-header-content {
+              display: flex;
+              -webkit-box-align: center;
+              align-items: center;
+              -webkit-box-pack: justify;
+              justify-content: space-between;
+              flex-direction: column;
+              width: 100%;
+              .swap-panel-header-title {
+                width: 100%;
+                margin-bottom: 15px;
+                color: var(--colors-text);
+                font-weight: 600;
+                line-height: 1.1;
+                font-size: 20px;
+              }
+              .swap-panel-header-description {
+                width: 100%;
+                height: 17px;
+                margin-bottom: 14px;
+                color: var(--colors-textSubtle);
+                font-weight: 400;
+                line-height: 1.5;
+                font-size: 14px;
+              }
+              .swap-panel-header-icons {
+                display: flex;
+                justify-content: end;
+                width: 100%;
+                > button {
+                  position: relative;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  border: 0px;
+                  border-radius: 16px;
+                  cursor: pointer;
+                  display: inline-flex;
+                  font-family: inherit;
+                  font-weight: 600;
+                  -webkit-box-pack: center;
+                  justify-content: center;
+                  letter-spacing: 0.03em;
+                  line-height: 1;
+                  opacity: 1;
+                  outline: 0px;
+                  transition: background-color 0.2s ease 0s,
+                    opacity 0.2s ease 0s;
+                  height: 32px;
+                  background-color: transparent;
+                  box-shadow: none;
+                  color: var(--colors-textSubtle);
+                  overflow: hidden;
+                  padding: 0px;
+                  width: 32px;
+                  font-size: 20px;
+                  &:hover {
+                    opacity: 0.65;
+                  }
+                  &:active {
+                    opacity: 0.85;
+                    transform: translateY(1px);
+                    box-shadow: none;
+                  }
+                  > svg {
+                    align-self: center;
+                    fill: var(--colors-textSubtle);
+                    flex-shrink: 0;
+                    &.hidden {
+                      display: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .swap-panel-page {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            padding: 1rem;
+            min-height: 412px;
+            gap: 8px;
+            .swap-panel-currencies {
+              display: grid;
+              grid-auto-rows: auto;
+              .swap-panel-currency-input {
+                position: relative;
+                .swap-panel-currency-selector {
+                  position: relative;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  border: 0px;
+                  border-radius: 16px;
+                  cursor: pointer;
+                  display: inline-flex;
+                  font-family: inherit;
+                  font-size: 16px;
+                  font-weight: 600;
+                  -webkit-box-pack: center;
+                  justify-content: center;
+                  letter-spacing: 0.03em;
+                  line-height: 1;
+                  opacity: 1;
+                  outline: 0px;
+                  transition: background-color 0.2s ease 0s,
+                    opacity 0.2s ease 0s;
+                  height: 32px;
+                  padding: 0px 0.5rem;
+                  background-color: transparent;
+                  box-shadow: none;
+                  &:hover {
+                    opacity: 0.65;
+                  }
+                  &:active {
+                    opacity: 0.85;
+                    transform: translateY(1px);
+                    box-shadow: none;
+                  }
+                  .flex {
+                    .swap-panel-pair {
+                      color: var(--colors-text);
+                      font-weight: 600;
+                      line-height: 1.5;
+                      font-size: 16px;
+                    }
+                    img {
+                      &:first-child {
+                        margin-right: 8px;
+                      }
+                      width: 24px;
+                      height: 24px;
+                      max-width: 100%;
+                    }
+                    svg {
+                      &:first-child {
+                        margin-right: 8px;
+                      }
+                      align-self: center;
+                      fill: var(--colors-text);
+                      flex-shrink: 0;
+                    }
+                  }
+                }
+                > div {
+                  button {
+                    width: auto;
+                    position: relative;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    border: 0px;
+                    border-radius: 16px;
+                    cursor: pointer;
+                    display: inline-flex;
+                    font-family: inherit;
+                    font-size: 16px;
+                    font-weight: 600;
+                    -webkit-box-pack: center;
+                    justify-content: center;
+                    letter-spacing: 0.03em;
+                    line-height: 1;
+                    opacity: 1;
+                    outline: 0px;
+                    transition: background-color 0.2s ease 0s,
+                      opacity 0.2s ease 0s;
+                    height: 32px;
+                    padding: 0px;
+                    background-color: transparent;
+                    color: var(--colors-primary);
+                    box-shadow: none;
+                    svg {
+                      align-self: center;
+                      fill: var(--colors-textSubtle);
+                      flex-shrink: 0;
+                    }
+                  }
+                }
+              }
+              .swap-panel-currency-form {
+                display: flex;
+                flex-flow: column nowrap;
+                position: relative;
+                background-color: var(--colors-backgroundAlt);
+                z-index: 1;
+                label {
+                  border-radius: 16px;
+                  background-color: var(--colors-input);
+                  box-shadow: var(--shadows-inset);
+                  .swap-panel-currency-form {
+                    &-top {
+                      display: flex;
+                      flex-flow: row nowrap;
+                      -webkit-box-align: center;
+                      align-items: center;
+                      color: var(--colors-text);
+                      font-size: 0.75rem;
+                      line-height: 1rem;
+                      padding: 0.75rem 1rem 0px;
+                      .swap-panel-currency-form-input {
+                        font-family: Kanit, sans-serif;
+                        width: 0;
+                        position: relative;
+                        font-weight: 500;
+                        outline: none;
+                        border: none;
+                        flex: 1 1 auto;
+                        background-color: transparent;
+                        font-size: 16px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        padding: 0;
+                        color: var(--colors-text);
+                        text-align: right;
+                        appearance: textfield;
+                      }
+                    }
+                    &-mid {
+                      display: flex;
+                      -webkit-box-pack: end;
+                      justify-content: flex-end;
+                      margin-right: 1rem;
+                      > div {
+                        > div {
+                          display: flex;
+                          max-width: 200px;
+                          .swap-panel-currency-form-input-sub {
+                            color: var(--colors-textSubtle);
+                            font-weight: 400;
+                            line-height: 1.5;
+                            font-size: 12px;
+                            height: 18px;
+                            text-align: right;
+                          }
+                        }
+                      }
+                    }
+                    &-bottom {
+                      display: flex;
+                      flex-flow: row nowrap;
+                      -webkit-box-align: center;
+                      align-items: center;
+                      -webkit-box-pack: end;
+                      justify-content: flex-end;
+                      padding: 0.75rem 0.75rem 0.75rem 1rem;
+                    }
+                  }
+                }
+              }
+              .swap-panel-currency-risk {
+                margin-top: 8px;
+                .swap-panel-currency-risk-button {
+                  -webkit-box-align: center;
+                  align-items: center;
+                  border-radius: 16px;
+                  color: rgb(255, 255, 255);
+                  display: inline-flex;
+                  white-space: nowrap;
+                  height: 28px;
+                  padding: 0px 8px;
+                  font-size: 14px;
+                  background-color: var(--colors-primary);
+                  color: var(--colors-invertedContrast);
+                  font-weight: 600;
+                  line-height: 1.5;
+                  > svg {
+                    align-self: center;
+                    fill: var(--colors-invertedContrast);
+                    flex-shrink: 0;
+                    margin-left: 4px;
+                  }
+                }
+              }
+            }
+
+            .swap-panel-currency-swap {
+              display: grid;
+              grid-auto-rows: auto;
+              .swap-panel-currency-swap-container {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 0px 1rem;
+                button {
+                  position: relative;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  border: 0px;
+                  border-radius: 16px;
+                  cursor: pointer;
+                  display: inline-flex;
+                  font-family: inherit;
+                  font-size: 16px;
+                  font-weight: 600;
+                  -webkit-box-pack: center;
+                  justify-content: center;
+                  letter-spacing: 0.03em;
+                  line-height: 1;
+                  opacity: 1;
+                  outline: 0px;
+                  transition: background-color 0.2s ease 0s,
+                    opacity 0.2s ease 0s;
+                  height: 32px;
+                  padding: 0px;
+                  width: 32px;
+                  background-color: var(--colors-input);
+                  color: var(--colors-textSubtle);
+                  box-shadow: none;
+                  &:hover {
+                    opacity: 0.65;
+                  }
+                  &:active {
+                    opacity: 0.85;
+                    transform: translateY(1px);
+                    box-shadow: none;
+                  }
+                  svg:first-child {
+                    display: block;
+                  }
+                  svg:last-child {
+                    display: none;
+                  }
+                  &:hover {
+                    svg:first-child {
+                      display: none;
+                    }
+                    svg:last-child {
+                      display: block;
+                    }
+                  }
+                  svg {
+                    align-self: center;
+                    fill: var(--colors-primary);
+                    flex-shrink: 0;
+                  }
+                }
+              }
+            }
+            .swap-panel-before-connect {
+              display: grid;
+              padding-bottom: v.$space-0;
+              padding-left: v.$space-6;
+              padding-right: v.$space-6;
+              padding-top: v.$space-0;
+              row-gap: 8px;
+              grid-auto-rows: auto;
+              .swap-panel-before-connect-content {
+                display: flex;
+                width: 100%;
+                padding: v.$space-0;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                .swap-panel-before-connect-slippage {
+                  color: var(--colors-secondary);
+                  font-weight: 600;
+                  line-height: 1.5;
+                  font-size: 12px;
+                  > button {
+                    position: relative;
+                    -webkit-box-align: center;
+                    align-items: center;
+                    border: 0px;
+                    border-radius: 16px;
+                    cursor: pointer;
+                    display: inline-flex;
+                    font-family: inherit;
+                    font-size: 16px;
+                    font-weight: 600;
+                    -webkit-box-pack: center;
+                    justify-content: center;
+                    letter-spacing: 0.03em;
+                    line-height: 1;
+                    opacity: 1;
+                    outline: 0px;
+                    transition: background-color 0.2s ease 0s,
+                      opacity 0.2s ease 0s;
+                    height: 32px;
+                    background-color: transparent;
+                    color: var(--colors-primary);
+                    box-shadow: none;
+                    padding: 0px;
+                    width: 32px;
+                    &:hover {
+                      opacity: 0.65;
+                    }
+                    &:active {
+                      opacity: 0.85;
+                      transform: translateY(1px);
+                      box-shadow: none;
+                    }
+                    > svg {
+                      align-self: center;
+                      fill: var(--colors-primary);
+                      flex-shrink: 0;
+                    }
+                  }
+                }
+                .swap-panel-before-connect-info {
+                  color: var(--colors-textSubtle);
+                  font-weight: 400;
+                  line-height: 1.5;
+                  font-size: 14px;
+                  display: flex;
+                  gap: 5px;
+                  > svg {
+                    align-self: center;
+                    fill: var(--colors-text);
+                    flex-shrink: 0;
+                  }
+                }
+              }
+            }
+            .swap-panel-connect {
+              margin-top: 0.25rem;
+              > button {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

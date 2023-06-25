@@ -1,0 +1,132 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.card-small {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  padding: 1rem;
+  border-radius: 2rem;
+  background-color: var(--colors-backgroundAlt);
+  display: flex;
+  flex-flow: column;
+  box-shadow: 0px 4px var(--colors-cardBorder);
+
+  .card-icon {
+    @include m.media(lg) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    display: inline;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    svg {
+      width: 2.5rem;
+      fill: var(--colors-secondary);
+    }
+  }
+
+  h3 {
+    color: var(--colors-text);
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1rem;
+    font-weight: bold;
+    font-size: 32px;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+
+    @include m.media(lg) {
+      justify-content: flex-end;
+      font-size: 40px;
+    }
+
+    div {
+      margin-top: 1rem;
+      @include m.media(lg) {
+        margin-bottom: 1rem;
+      }
+      color: var(--colors-secondary);
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-top: 0.5rem;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+p {
+  margin: 0;
+  margin-top: 0.5rem;
+  padding: 0;
+  padding-left: 0.8rem;
+  font-size: 1rem;
+}
+
+.card-gold {
+  color: #280d5f;
+  width: 275px;
+  height: 369px;
+  background: linear-gradient(#ffb237 0%, #ffcd51 51.17%, #ffe76a 100%);
+  padding: 1rem;
+  border-radius: v.$radius-card;
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  box-shadow: 0 4px var(--colors-binance);
+  font-size: 0.8rem;
+
+  .card-icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    svg {
+      width: 33px;
+    }
+  }
+
+  p {
+    display: inline-block;
+    margin: 0;
+    margin-top: 0.5rem;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  div {
+    div {
+      font-size: 32px;
+      @include m.media(lg) {
+        font-size: 40px;
+      }
+    }
+
+    p:nth-child(4) {
+      margin-top: 1rem;
+      font-weight: 400;
+    }
+  }
+  button {
+    border-radius: 16px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    svg {
+      fill: var(--colors-backgroundAlt);
+    }
+  }
+}
